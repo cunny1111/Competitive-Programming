@@ -4,3 +4,5 @@ Archive for all my Competitive Programming stuff.
 - Leetcode: C++
 - VNOJ: C++17
 - School-Practices: C++17 (Themis)
+
+*All files are AC submission*
