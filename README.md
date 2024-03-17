@@ -6,4 +6,4 @@ Archive for all my Competitive Programming stuff.
 - School-Practices: C++17 (Themis)
 - Random-Practices: C++17
 
-*All files are AC submission*
+*All files are AC submission.*
