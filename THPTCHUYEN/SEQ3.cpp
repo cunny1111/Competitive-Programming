@@ -1,17 +1,6 @@
 #pragma GCC optimize("O3")
 #include <bits/stdc++.h>
-#define int long long
 using namespace std;
-
-int divs(int n) {
-  int res(0);
-  for (int i(1); i * i <= n; i++) {
-    res += (i + n / i) * (n % i == 0);
-    if (i * i == n)
-      res -= i;
-  }
-  return res;
-}
 
 signed main() {
   ios_base::sync_with_stdio(false);
@@ -21,7 +10,17 @@ signed main() {
   int n;
   cin >> n;
 
-  cout << divs(n);
+  vector<int> a(n);
+  for (int &x : a)
+    cin >> x;
+
+  int ai(a[1]), res(a[1]);
+  for (int i(2); i < n; i++) {
+    ai = max(a[i], ai + a[i]);
+    res = max(res, ai);
+  }
+
+  cout << res;
 
   return 0;
 }

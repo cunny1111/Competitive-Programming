@@ -1,4 +1,3 @@
-#include <climits>
 #pragma GCC optimize("O3")
 #include <bits/stdc++.h>
 #define int long long
@@ -9,22 +8,21 @@ signed main() {
   cin.tie(nullptr);
   cout.tie(nullptr);
 
-  int n, total(0);
+  int n, res(0);
   cin >> n;
 
   vector<int> a(n);
   for (int i(0); i < n; i++) {
     cin >> a[i];
-    total += a[i];
   }
 
-  int min_diff(LLONG_MAX), dp(0);
-  for (int k(0); k < n - 1; k++) {
-    dp += a[k];
-    min_diff = min(min_diff, abs(2 * dp - total));
+  sort(a.rbegin(), a.rend());
+  for (int i(0); i < n; i++) {
+    int curr = a[i] * (i + 1);
+    res = max(res, curr);
   }
 
-  cout << min_diff;
+  cout << res;
 
   return 0;
 }

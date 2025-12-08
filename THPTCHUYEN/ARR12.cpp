@@ -1,7 +1,5 @@
-#include <climits>
 #pragma GCC optimize("O3")
 #include <bits/stdc++.h>
-#define int long long
 using namespace std;
 
 signed main() {
@@ -9,22 +7,21 @@ signed main() {
   cin.tie(nullptr);
   cout.tie(nullptr);
 
-  int n, total(0);
+  int n;
   cin >> n;
 
   vector<int> a(n);
   for (int i(0); i < n; i++) {
     cin >> a[i];
-    total += a[i];
+    if (a[i] & 1)
+      a[i]++;
+    else
+      a[i] = a[i] >> 1;
   }
 
-  int min_diff(LLONG_MAX), dp(0);
-  for (int k(0); k < n - 1; k++) {
-    dp += a[k];
-    min_diff = min(min_diff, abs(2 * dp - total));
-  }
-
-  cout << min_diff;
+  sort(a.begin(), a.end());
+  for (int i(0); i < n; i++)
+    cout << a[i] << " ";
 
   return 0;
 }
